@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Nav from "./components/Nav";
 import Sidebar from "./components/Sidebar";
+import Banner from "./components/Banner";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -16,6 +17,7 @@ function App() {
     <div className="app">
       {showSidebar && <Sidebar toggle={toggle} />}
       <Nav toggle={toggle} />
+      <Banner />
     </div>
   );
 }
