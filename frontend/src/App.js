@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 //components
 import "./App.css";
@@ -18,11 +18,10 @@ import {
   extrasObj,
 } from "./components/data/data";
 import Item from "./components/Item";
-import Login from "./components/Login";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
-  const [starters, setStarters] = useState([
+  const [starters] = useState([
     { name: "chilli paneer", price: 4.99 },
     { name: "mixed kebab", price: 4.99 },
     { name: "vegetarian samosas", price: 4.99 },
