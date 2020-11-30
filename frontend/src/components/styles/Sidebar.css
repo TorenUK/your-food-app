@@ -35,3 +35,7 @@
   color: #01bf71;
   cursor: pointer;
 }
+
+.sidebar__button > .MuiButton-root {
+  background-color: #01bf71;
+}

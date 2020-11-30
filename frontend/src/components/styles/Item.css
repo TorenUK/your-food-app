@@ -1,12 +1,44 @@
 .item {
+  position: relative;
+
   min-width: 300px;
   min-height: 200px;
   margin: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
   text-align: center;
   background-color: white;
   border-radius: 5px;
 }
-.item > h1 {
+
+.item__interact {
+  position: absolute;
+
+  right: 0.5rem;
+  bottom: 0.5rem;
+
+  width: 40px;
+  height: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 5px;
+}
+
+.item__interact > .MuiSvgIcon-root {
+  font-size: 35px;
+  fill: #01bf71 !important;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.item__text,
+.item__image,
+.item__interact {
   color: black;
 }

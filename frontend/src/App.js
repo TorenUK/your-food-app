@@ -7,6 +7,7 @@ import Sidebar from "./components/Sidebar";
 import Banner from "./components/Banner";
 import BannerNav from "./components/BannerNav";
 import Section from "./components/Section";
+import Footer from "./components/Footer";
 
 // other
 import {
@@ -33,6 +34,7 @@ function App() {
       <Section {...mainsObj} />
       <Section {...dessertsObj} />
       <Section {...extrasObj} />
+      <Footer />
     </div>
   );
 }

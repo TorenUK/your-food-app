@@ -16,7 +16,11 @@
   justify-items: center;
 }
 
-.bannerNav__segment a :hover {
+.bannerNav__segment > a > p {
+  color: white;
+}
+
+.bannerNav__segment > a :hover {
   transition: all 0.2s ease-in-out;
   color: #01bf71;
   cursor: pointer;
