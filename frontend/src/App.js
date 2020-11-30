@@ -8,6 +8,7 @@ import Banner from "./components/Banner";
 import BannerNav from "./components/BannerNav";
 import Section from "./components/Section";
 import Footer from "./components/Footer";
+import Chat from "./components/Chat";
 
 // other
 import {
@@ -17,6 +18,7 @@ import {
   extrasObj,
 } from "./components/data/data";
 import Item from "./components/Item";
+import Login from "./components/Login";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -58,6 +60,7 @@ function App() {
         ))}
       </Section>
       <Footer />
+      <Chat />
     </div>
   );
 }

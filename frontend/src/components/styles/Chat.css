@@ -1,0 +1,42 @@
+.chat {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+
+  width: 70px;
+  height: 70px;
+
+  display: grid;
+  place-items: center;
+
+  background-color: #fff;
+  border-radius: 5px;
+  z-index: 104;
+}
+
+.chat > .MuiSvgIcon-root {
+  fill: #01bf71;
+  font-size: 2.2rem;
+  cursor: pointer;
+}
+
+.chat__modal {
+  width: 700px;
+  height: 700px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  justify-content: center;
+
+  background-color: #fff;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.chat__title > h1 {
+  color: black;
+}

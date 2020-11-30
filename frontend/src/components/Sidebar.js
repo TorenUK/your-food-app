@@ -25,7 +25,7 @@ const Sidebar = ({ toggle }) => {
         </li>
       </ul>
       <div className="sidebar__button">
-        <Button>Sign In</Button>
+        <Button onClick={toggle}>Sign In</Button>
       </div>
     </aside>
   );
