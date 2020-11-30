@@ -7,8 +7,8 @@
   align-items: center;
 
   background: url(../images/banner-img4.png);
-  background-position: center;
-  background-size: cover;
+  background-position: 10% 38%;
+  background-size: 100%;
   background-repeat: no-repeat;
 }
 
@@ -28,6 +28,10 @@
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 960px) {
+  .banner {
+    background-position: center;
+  }
+
   .banner__content > h2 {
     color: #01bf71;
     font-size: 1.5rem;

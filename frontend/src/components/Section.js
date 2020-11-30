@@ -4,18 +4,13 @@ import React from "react";
 import "./styles/Section.css";
 import Item from "./Item";
 
-const Section = ({ id, title }) => {
+const Section = ({ id, title, children }) => {
   return (
     <div id={id} className="section">
       <div className="section__header">
         <h2>{title}</h2>
       </div>
-      <div className="section__container">
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-      </div>
+      <div className="section__container">{children}</div>
     </div>
   );
 };

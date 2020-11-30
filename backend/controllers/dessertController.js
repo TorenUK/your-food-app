@@ -3,7 +3,7 @@
 const Dessert = require("../models/dbDesserts");
 
 const desserts_all = (req, res) => {
-  Main.find((err, data) => {
+  Dessert.find((err, data) => {
     if (err) {
       res.status(500).send(err);
     } else {
