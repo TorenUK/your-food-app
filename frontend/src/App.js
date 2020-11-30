@@ -5,6 +5,7 @@ import "./App.css";
 import Nav from "./components/Nav";
 import Sidebar from "./components/Sidebar";
 import Banner from "./components/Banner";
+import BannerNav from "./components/BannerNav";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -18,6 +19,7 @@ function App() {
       {showSidebar && <Sidebar toggle={toggle} />}
       <Nav toggle={toggle} />
       <Banner />
+      <BannerNav />
     </div>
   );
 }

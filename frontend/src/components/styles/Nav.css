@@ -1,4 +1,5 @@
 .nav {
+  width: 100%;
   height: 80px;
   position: sticky;
   top: 0;
@@ -13,10 +14,10 @@
 }
 
 .nav__container {
-  width: 90%;
-  max-width: 1100px;
+  width: 100%;
+  max-width: 1200px;
   height: 80px;
-  padding: 0 24px;
+  padding: 0 1.5rem;
 
   display: flex;
   justify-content: space-between;
@@ -24,9 +25,7 @@
 }
 
 .nav__logo {
-  justify-self: flex-start;
-  display: flex;
-  align-items: center;
+  min-width: 200px;
 
   font-size: 1.2rem;
   font-weight: bold;
@@ -39,28 +38,28 @@
 
 .nav__menu {
   height: 100%;
+  min-width: 200px;
 
   display: flex;
-  align-items: center;
+  justify-content: center;
 
   list-style: none;
   text-align: center;
 }
 
 .nav__links {
-  width: 300px;
-  max-width: 300px;
   height: 100%;
+  width: 100%;
 
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .nav__item {
-  height: 100%;
   padding: 0 1rem;
 
   display: flex;
+  justify-content: center;
   align-items: center;
 
   cursor: pointer;
@@ -68,6 +67,10 @@
 
 .nav__item:hover {
   border-bottom: 3px solid #01bf71;
+}
+
+.nav__button {
+  min-width: 200px;
 }
 
 /* MEDIA QUERIES */
