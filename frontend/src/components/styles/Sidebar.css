@@ -10,12 +10,12 @@
 
   background-color: #0d0d0d;
   transition: 0.3s ease-in-out;
-  z-index: 100;
+  z-index: 101;
 }
 
 .sidebar__close {
   position: absolute;
-  top: 10%;
+  top: 12%;
   right: 5%;
 
   cursor: pointer;

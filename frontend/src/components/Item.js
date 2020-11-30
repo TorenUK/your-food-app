@@ -4,7 +4,6 @@ import React from "react";
 import "./styles/Item.css";
 
 // other
-import { Button } from "@material-ui/core";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 
 const Item = () => {
