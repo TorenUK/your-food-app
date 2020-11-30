@@ -3,14 +3,33 @@ import React from "react";
 // components
 import "./styles/BannerNav.css";
 
+// other
+import { Link as LinkScroll } from "react-scroll";
+
 const BannerNav = () => {
   return (
     <div className="bannerNav">
       <div className="bannerNav__container">
-        <div className="bannerNav__segment">starters</div>
-        <div className="bannerNav__segment">mains</div>
-        <div className="bannerNav__segment">dessert</div>
-        <div className="bannerNav__segment">extras</div>
+        <div className="bannerNav__segment">
+          <LinkScroll to="starters" smooth={true} duration={1000}>
+            <p>starters</p>
+          </LinkScroll>
+        </div>
+        <div className="bannerNav__segment">
+          <LinkScroll to="mains" smooth={true} duration={1000}>
+            <p>mains</p>
+          </LinkScroll>
+        </div>
+        <div className="bannerNav__segment">
+          <LinkScroll to="desserts" smooth={true} duration={1000}>
+            <p>desserts</p>
+          </LinkScroll>
+        </div>
+        <div className="bannerNav__segment">
+          <LinkScroll to="extras" smooth={true} duration={1000}>
+            <p>extras</p>
+          </LinkScroll>
+        </div>
       </div>
     </div>
   );

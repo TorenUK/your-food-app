@@ -73,6 +73,10 @@
   min-width: 200px;
 }
 
+.nav__button > .MuiButton-root {
+  background-color: #01bf71;
+}
+
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 960px) {

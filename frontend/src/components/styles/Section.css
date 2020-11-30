@@ -1,0 +1,23 @@
+.section {
+  min-height: 600px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: black;
+}
+
+.section__header > h2 {
+  margin: 1rem;
+}
+
+.section__container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}

@@ -6,6 +6,15 @@ import Nav from "./components/Nav";
 import Sidebar from "./components/Sidebar";
 import Banner from "./components/Banner";
 import BannerNav from "./components/BannerNav";
+import Section from "./components/Section";
+
+// other
+import {
+  startersObj,
+  mainsObj,
+  dessertsObj,
+  extrasObj,
+} from "./components/data/data";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -20,6 +29,10 @@ function App() {
       <Nav toggle={toggle} />
       <Banner />
       <BannerNav />
+      <Section {...startersObj} />
+      <Section {...mainsObj} />
+      <Section {...dessertsObj} />
+      <Section {...extrasObj} />
     </div>
   );
 }
