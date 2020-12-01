@@ -2,7 +2,6 @@ import React from "react";
 
 // components
 import "./styles/Section.css";
-import Item from "./Item";
 
 const Section = ({ id, title, children }) => {
   return (

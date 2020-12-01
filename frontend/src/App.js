@@ -9,6 +9,7 @@ import BannerNav from "./components/BannerNav";
 import Section from "./components/Section";
 import Footer from "./components/Footer";
 import Chat from "./components/Chat";
+import Postcode from "./components/Postcode";
 
 // other
 import {
@@ -37,6 +38,7 @@ function App() {
       {showSidebar && <Sidebar toggle={toggle} />}
       <Nav toggle={toggle} />
       <Banner />
+      <Postcode />
       <BannerNav />
       <Section {...startersObj}>
         {starters.map((item, idx) => (
