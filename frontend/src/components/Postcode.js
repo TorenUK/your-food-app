@@ -75,11 +75,11 @@ const Postcode = () => {
         <Button type="submit">{loading ? "checking" : "check"}</Button>
       </form>
       {success && (
-        <h5>
+        <h4>
           {distance < 5
-            ? "yes - we deliver there!"
+            ? "yes - we deliver to your area!"
             : "sorry, we currently service your area"}
-        </h5>
+        </h4>
       )}
     </div>
   );

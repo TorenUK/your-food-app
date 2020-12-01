@@ -18,16 +18,11 @@ import {
   dessertsObj,
   extrasObj,
 } from "./components/data/data";
+import { starterItems } from "./components/data/menuItems";
 import Item from "./components/Item";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
-  const [starters] = useState([
-    { name: "chilli paneer", price: 4.99 },
-    { name: "mixed kebab", price: 4.99 },
-    { name: "vegetarian samosas", price: 4.99 },
-    { name: "poppadums", price: 4.99 },
-  ]);
 
   const toggle = () => {
     setShowSidebar(!showSidebar);
@@ -41,25 +36,18 @@ function App() {
       <Postcode />
       <BannerNav />
       <Section {...startersObj}>
-        {starters.map((item, idx) => (
-          <Item key={idx} name={item.name} price={item.price} />
+        {starterItems.map((item, idx) => (
+          <Item
+            key={idx}
+            name={item.name}
+            price={item.price}
+            image={item.image}
+          />
         ))}
       </Section>
-      <Section {...mainsObj}>
-        {starters.map((item, idx) => (
-          <Item key={idx} name={item.name} price={item.price} />
-        ))}
-      </Section>
-      <Section {...dessertsObj}>
-        {starters.map((item, idx) => (
-          <Item key={idx} name={item.name} price={item.price} />
-        ))}
-      </Section>
-      <Section {...extrasObj}>
-        {starters.map((item, idx) => (
-          <Item key={idx} name={item.name} price={item.price} />
-        ))}
-      </Section>
+      <Section {...mainsObj}></Section>
+      <Section {...dessertsObj}></Section>
+      <Section {...extrasObj}></Section>
       <Footer />
       <Chat />
     </div>
