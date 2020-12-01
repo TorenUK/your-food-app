@@ -18,7 +18,12 @@ import {
   dessertsObj,
   extrasObj,
 } from "./components/data/data";
-import { starterItems } from "./components/data/menuItems";
+import {
+  starterItems,
+  mainItems,
+  dessertItems,
+  extraItems,
+} from "./components/data/menuItems";
 import Item from "./components/Item";
 
 function App() {
@@ -45,9 +50,36 @@ function App() {
           />
         ))}
       </Section>
-      <Section {...mainsObj}></Section>
-      <Section {...dessertsObj}></Section>
-      <Section {...extrasObj}></Section>
+      <Section {...mainsObj}>
+        {mainItems.map((item, idx) => (
+          <Item
+            key={idx}
+            name={item.name}
+            price={item.price}
+            image={item.image}
+          />
+        ))}
+      </Section>
+      <Section {...dessertsObj}>
+        {dessertItems.map((item, idx) => (
+          <Item
+            key={idx}
+            name={item.name}
+            price={item.price}
+            image={item.image}
+          />
+        ))}
+      </Section>
+      <Section {...extrasObj}>
+        {extraItems.map((item, idx) => (
+          <Item
+            key={idx}
+            name={item.name}
+            price={item.price}
+            image={item.image}
+          />
+        ))}
+      </Section>
       <Footer />
       <Chat />
     </div>

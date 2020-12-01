@@ -30,13 +30,21 @@
   transform: translate(-50%, -50%);
 
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 
+  text-align: center;
   background-color: #fff;
   border-radius: 5px;
   z-index: 1000;
 }
 
-.chat__title > h1 {
+.chat__close > .MuiButtonBase-root {
+  margin-top: 1rem;
+}
+
+.chat__title > h1,
+h2 {
   color: black;
 }
