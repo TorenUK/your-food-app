@@ -20,7 +20,17 @@ const Postcode = () => {
   };
 
   const hanndleSubmit = () => {
-    findDistance(postcode).then(setSuccess(true));
+    setLoading(true);
+
+    findDistance(postcode).then(() => {
+      setSuccess(true);
+
+      if (distance !== "") {
+        setTimeout(() => {
+          setLoading(false);
+        }, 500);
+      }
+    });
   };
 
   const findDistance = async (postcode) => {
