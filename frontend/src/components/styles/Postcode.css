@@ -13,6 +13,13 @@
 .postcode > h3,
 h4 {
   font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.postcode > h4 > .MuiSvgIcon-root {
+  margin-left: 5px;
+  fill: rgb(211, 33, 33);
 }
 
 .postcode > form > input {

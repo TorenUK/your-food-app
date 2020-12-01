@@ -5,6 +5,7 @@ import "./styles/Postcode.css";
 
 // other
 import { Button } from "@material-ui/core";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
 import { getDistance } from "geolib";
 import axios from "axios";
 
@@ -52,8 +53,10 @@ const Postcode = () => {
 
   return (
     <div className="postcode">
+      <h4>
+        111 London Road, Leicester, LE2 1ND <LocationOnIcon />
+      </h4>
       <h3>Do we deliver to you?</h3>
-      <h4>111 London Road, Leicester, LE2 1ND</h4>
       <form
         onSubmit={(e) => {
           e.preventDefault();
