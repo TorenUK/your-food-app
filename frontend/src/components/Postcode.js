@@ -9,13 +9,18 @@ import { getDistance } from "geolib";
 import axios from "axios";
 
 const Postcode = () => {
-  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [distance, setDistance] = useState("");
   const [postcode, setPostcode] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const baseCoordinates = {
-    latitude: 52.625669,
-    longitude: -1.116733,
+    latitude: 52.62886,
+    longitude: -1.122674,
+  };
+
+  const hanndleSubmit = () => {
+    findDistance(postcode).then(setSuccess(true));
   };
 
   const findDistance = async (postcode) => {
@@ -35,27 +40,19 @@ const Postcode = () => {
     }
   };
 
-  const hanndleSubmit = (e) => {
-    setLoading(true);
-
-    const inputPostcode = e.target.postcode.value;
-
-    setPostcode(inputPostcode.replace(/\s/g, ""));
-    findDistance(postcode);
-    console.log(distance);
-  };
-
   return (
     <div className="postcode">
       <h3>Do we deliver to you?</h3>
-      <h4>123 London Road, Leicester, LE2 1ND</h4>
+      <h4>111 London Road, Leicester, LE2 1ND</h4>
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          hanndleSubmit(e);
+          hanndleSubmit();
         }}
       >
         <input
+          value={postcode}
+          onChange={(e) => setPostcode(e.target.value.replace(/\s/g, ""))}
           name="postcode"
           type="text"
           placeholder="your postcode"
@@ -64,6 +61,13 @@ const Postcode = () => {
         />
         <Button type="submit">{loading ? "checking" : "check"}</Button>
       </form>
+      {success && (
+        <h5>
+          {distance < 5
+            ? "yes - we deliver there!"
+            : "sorry, we currently service your area"}
+        </h5>
+      )}
     </div>
   );
 };
