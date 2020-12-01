@@ -72,13 +72,13 @@ const Postcode = () => {
           autoComplete="postal-code"
           required
         />
-        <Button type="submit">{loading ? "checking" : "check"}</Button>
+        <Button type="submit">check</Button>
       </form>
       {success && (
         <h4>
           {distance < 5
             ? "yes - we deliver to your area!"
-            : "sorry, we currently service your area"}
+            : "sorry, we don't currently service your area"}
         </h4>
       )}
     </div>
