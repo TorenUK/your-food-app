@@ -58,7 +58,7 @@ const Postcode = () => {
       <h4>
         111 London Road, Leicester, LE2 1ND <LocationOnIcon />
       </h4>
-      <h3>Do we deliver to you? (5 mile radius)</h3>
+      <h3>Do we deliver to you? (10 mile radius)</h3>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -78,7 +78,7 @@ const Postcode = () => {
       </form>
       {success && (
         <>
-          {distance < 5 ? (
+          {distance < 11 ? (
             <h4>
               yes - we deliver to your area!
               <span>{ward}</span>
