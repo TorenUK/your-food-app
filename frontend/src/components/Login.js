@@ -12,6 +12,40 @@ const Login = ({ toggleLogin }) => {
   const [password, setPassword] = useState("");
   const [processing, setProcessing] = useState(false);
 
+  const [emailErr, setEmailErr] = useState("");
+  const [passwordErr, setPasswordErr] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setProcessing(true);
+
+    // reset errors
+    setEmailErr("");
+    setPasswordErr("");
+
+    try {
+      const res = await fetch("http://localhost:4242/user/login", {
+        method: "POST",
+        withCredentials: true,
+        body: JSON.stringify({ email, password }),
+        headers: { "Content-Type": "application/json" },
+      });
+      const data = await res.json();
+      console.log(data);
+      // update error divs
+      if (data.errors) {
+        setEmailErr(data.errors.email);
+        setPasswordErr(data.errors.password);
+        setProcessing(false);
+      }
+      if (data.user) {
+        toggleLogin();
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="login">
       <div className="login__close">
@@ -29,7 +63,7 @@ const Login = ({ toggleLogin }) => {
           autoComplete="email"
           required
         />
-        <div className="email error"></div>
+        <div className="email error">{emailErr}</div>
         <input
           onChange={(e) => {
             setPassword(e.target.value);
@@ -40,8 +74,10 @@ const Login = ({ toggleLogin }) => {
           autoComplete="true"
           required
         />
-        <div className="password error"></div>
-        <Button>{processing ? "PROCESSING" : "CONTINUE"}</Button>
+        <div className="password error">{passwordErr}</div>
+        <Button onClick={handleSubmit}>
+          {processing ? "PROCESSING" : "CONTINUE"}
+        </Button>
       </form>
     </div>
   );

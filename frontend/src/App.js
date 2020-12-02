@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import Chat from "./components/Chat";
 import Postcode from "./components/Postcode";
 import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 
 // other
 import {
@@ -30,12 +31,16 @@ import Item from "./components/Item";
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
   const toggleLogin = () => {
     setShowLogin(!showLogin);
+  };
+  const toggleSignUp = () => {
+    setShowSignUp(!showSignUp);
   };
 
   return (
