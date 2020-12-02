@@ -7,7 +7,7 @@ import "./styles/Nav.css";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Button } from "@material-ui/core";
 
-const Nav = ({ toggle }) => {
+const Nav = ({ toggleLogin, toggleSidebar }) => {
   return (
     <nav className="nav">
       <div className="nav__container">
@@ -15,7 +15,7 @@ const Nav = ({ toggle }) => {
           <h1>Your Food App.</h1>
         </div>
         <div className="nav__burger">
-          <MenuIcon onClick={toggle} />
+          <MenuIcon onClick={toggleSidebar} />
         </div>
         <div className="nav__menu">
           <ul className="nav__links">
@@ -25,7 +25,7 @@ const Nav = ({ toggle }) => {
           </ul>
         </div>
         <div className="nav__button">
-          <Button>Sign In</Button>
+          <Button onClick={toggleLogin}>Sign In</Button>
         </div>
       </div>
     </nav>

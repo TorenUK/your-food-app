@@ -7,25 +7,32 @@ import "./styles/Sidebar.css";
 import CloseIcon from "@material-ui/icons/Close";
 import { Button } from "@material-ui/core";
 
-const Sidebar = ({ toggle }) => {
+const Sidebar = ({ toggleLogin, toggleSidebar }) => {
   return (
     <aside className="sidebar__container">
       <div className="sidebar__close">
-        <CloseIcon onClick={toggle} />
+        <CloseIcon onClick={toggleSidebar} />
       </div>
       <ul className="sidebar__menu">
-        <li onClick={toggle} className="sidebar__link">
+        <li onClick={toggleSidebar} className="sidebar__link">
           Orders
         </li>
-        <li onClick={toggle} className="sidebar__link">
+        <li onClick={toggleSidebar} className="sidebar__link">
           About
         </li>
-        <li onClick={toggle} className="sidebar__link">
+        <li onClick={toggleSidebar} className="sidebar__link">
           Sign Up
         </li>
       </ul>
       <div className="sidebar__button">
-        <Button onClick={toggle}>Sign In</Button>
+        <Button
+          onClick={() => {
+            toggleLogin();
+            toggleSidebar();
+          }}
+        >
+          Sign In
+        </Button>
       </div>
     </aside>
   );

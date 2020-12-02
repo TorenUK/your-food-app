@@ -10,6 +10,7 @@ import Section from "./components/Section";
 import Footer from "./components/Footer";
 import Chat from "./components/Chat";
 import Postcode from "./components/Postcode";
+import Login from "./components/Login";
 
 // other
 import {
@@ -28,15 +29,21 @@ import Item from "./components/Item";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
-  const toggle = () => {
+  const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
+  };
+  const toggleLogin = () => {
+    setShowLogin(!showLogin);
   };
 
   return (
     <div className="app">
-      {showSidebar && <Sidebar toggle={toggle} />}
-      <Nav toggle={toggle} />
+      {showSidebar && (
+        <Sidebar toggleLogin={toggleLogin} toggleSidebar={toggleSidebar} />
+      )}
+      <Nav toggleLogin={toggleLogin} toggleSidebar={toggleSidebar} />
       <Banner />
       <Postcode />
       <BannerNav />
@@ -82,6 +89,7 @@ function App() {
       </Section>
       <Footer />
       <Chat />
+      {showLogin && <Login toggleLogin={toggleLogin} />}
     </div>
   );
 }
