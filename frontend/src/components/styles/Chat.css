@@ -11,7 +11,7 @@
 
   background-color: #fff;
   border-radius: 5px;
-  z-index: 104;
+  z-index: 999;
 }
 
 .chat > .MuiSvgIcon-root {

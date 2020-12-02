@@ -8,3 +8,14 @@
   text-decoration: none;
   list-style: none;
 }
+
+.Toastify__toast--dark {
+  background-color: #01bf71 !important;
+  border-radius: 5px !important;
+  text-align: center !important;
+  font-size: 1.2rem !important;
+}
+
+.Toastify__progress-bar {
+  background-color: #fff !important;
+}

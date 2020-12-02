@@ -12,6 +12,7 @@ import Chat from "./components/Chat";
 import Postcode from "./components/Postcode";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import Item from "./components/Item";
 
 // other
 import {
@@ -26,12 +27,17 @@ import {
   dessertItems,
   extraItems,
 } from "./components/data/menuItems";
-import Item from "./components/Item";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
+
+  // toast
+  const notify = (name, quantity) =>
+    toast.dark(`${quantity} x ${name} added to cart`);
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
@@ -67,6 +73,7 @@ function App() {
             name={item.name}
             price={item.price}
             image={item.image}
+            notify={notify}
           />
         ))}
       </Section>
@@ -77,6 +84,7 @@ function App() {
             name={item.name}
             price={item.price}
             image={item.image}
+            notify={notify}
           />
         ))}
       </Section>
@@ -87,6 +95,7 @@ function App() {
             name={item.name}
             price={item.price}
             image={item.image}
+            notify={notify}
           />
         ))}
       </Section>
@@ -97,6 +106,7 @@ function App() {
             name={item.name}
             price={item.price}
             image={item.image}
+            notify={notify}
           />
         ))}
       </Section>
@@ -104,6 +114,16 @@ function App() {
       <Chat />
       {showLogin && <Login toggleLogin={toggleLogin} />}
       {showSignUp && <SignUp toggleSignUp={toggleSignUp} />}
+      <ToastContainer
+        position="bottom-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+      />
     </div>
   );
 }
