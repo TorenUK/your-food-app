@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 
 const itemRoutes = require("./routes/itemRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 const localMongoPassword = process.env.LOCAL_MONGO_PASSWORD;
 
@@ -35,6 +36,7 @@ app.get("/", (req, res) => {
 });
 
 app.use(itemRoutes);
+app.use(authRoutes);
 
 // listen
 app.listen(4242, () => console.log("server running"));
