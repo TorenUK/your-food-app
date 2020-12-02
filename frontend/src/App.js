@@ -46,9 +46,17 @@ function App() {
   return (
     <div className="app">
       {showSidebar && (
-        <Sidebar toggleLogin={toggleLogin} toggleSidebar={toggleSidebar} />
+        <Sidebar
+          toggleSignUp={toggleSignUp}
+          toggleLogin={toggleLogin}
+          toggleSidebar={toggleSidebar}
+        />
       )}
-      <Nav toggleLogin={toggleLogin} toggleSidebar={toggleSidebar} />
+      <Nav
+        toggleSignUp={toggleSignUp}
+        toggleLogin={toggleLogin}
+        toggleSidebar={toggleSidebar}
+      />
       <Banner />
       <Postcode />
       <BannerNav />
@@ -95,6 +103,7 @@ function App() {
       <Footer />
       <Chat />
       {showLogin && <Login toggleLogin={toggleLogin} />}
+      {showSignUp && <SignUp toggleSignUp={toggleSignUp} />}
     </div>
   );
 }

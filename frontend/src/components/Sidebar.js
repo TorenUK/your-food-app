@@ -7,7 +7,7 @@ import "./styles/Sidebar.css";
 import CloseIcon from "@material-ui/icons/Close";
 import { Button } from "@material-ui/core";
 
-const Sidebar = ({ toggleLogin, toggleSidebar }) => {
+const Sidebar = ({ toggleSignUp, toggleLogin, toggleSidebar }) => {
   return (
     <aside className="sidebar__container">
       <div className="sidebar__close">
@@ -20,7 +20,13 @@ const Sidebar = ({ toggleLogin, toggleSidebar }) => {
         <li onClick={toggleSidebar} className="sidebar__link">
           About
         </li>
-        <li onClick={toggleSidebar} className="sidebar__link">
+        <li
+          onClick={() => {
+            toggleSignUp();
+            toggleSidebar();
+          }}
+          className="sidebar__link"
+        >
           Sign Up
         </li>
       </ul>
