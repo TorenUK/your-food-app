@@ -58,7 +58,7 @@ export const dessertItems = [
     price: 0.0,
   },
   {
-    name: "item",
+    name: "coming soon",
     price: 0.0,
   },
 ];

@@ -70,3 +70,43 @@
 .item__interact > .MuiSvgIcon-root:hover {
   transform: scale(1.1);
 }
+
+.item__slide {
+  position: absolute;
+  bottom: -101%;
+
+  max-width: 300px;
+  min-width: 300px;
+  min-height: 200px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  background-color: #0d0d0d;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: 107;
+}
+
+.item__slide > .item__slide__info > p {
+  color: #fff;
+}
+
+.item__slide > form {
+  width: 100%;
+  max-height: 30%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.item__slide > form > .MuiButton-root {
+  background-color: #01bf71;
+}
+
+.item__slide > form > select,
+option {
+  color: #000;
+}

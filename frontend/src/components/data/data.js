@@ -1,19 +1,19 @@
 export const startersObj = {
   id: "starters",
-  title: "starters",
+  title: "Starters",
 };
 
 export const mainsObj = {
   id: "mains",
-  title: "mains",
+  title: "Mains",
 };
 
 export const dessertsObj = {
   id: "desserts",
-  title: "desserts",
+  title: "Desserts",
 };
 
 export const extrasObj = {
   id: "extras",
-  title: "extras",
+  title: "Extras",
 };
