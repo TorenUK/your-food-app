@@ -21,7 +21,7 @@ const handleErrors = (err) => {
   }
 
   // duplicate error code
-  if (err.code === 1100) {
+  if (err.code === 11000) {
     errors.email = "email already in use";
     return errors;
   }
