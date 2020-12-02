@@ -7,8 +7,32 @@ import "./styles/Item.css";
 import { Button } from "@material-ui/core";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 
+// redux
+import { useDispatch } from "react-redux";
+import { addToOrder } from "../features/order/orderSlice";
+
 const Item = ({ name, price, image }) => {
   const [showSlide, setShowSlide] = useState(false);
+
+  const handleSubmit = (e) => {
+    let total = 0;
+    const quantity = e.target.quantity.value;
+
+    total = quantity * price;
+
+    const parsedTotal = parseFloat(total).toFixed(2);
+
+    toggleSlide();
+    dispatch(
+      addToOrder({
+        name: name,
+        quantity: quantity,
+        price: parseFloat(parsedTotal),
+      })
+    );
+  };
+
+  const dispatch = useDispatch();
 
   const toggleSlide = () => {
     setShowSlide(!showSlide);
@@ -37,8 +61,13 @@ const Item = ({ name, price, image }) => {
           <div className="item__slide__info">
             <p>hi, this is where the item description will go 😊</p>
           </div>
-          <form>
-            <label for="quantity">quantity</label>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSubmit(e);
+            }}
+          >
+            <label htmlFor="quantity">quantity</label>
             <select name="quantity">
               <option value="1">1</option>
               <option value="2">2</option>
@@ -46,7 +75,7 @@ const Item = ({ name, price, image }) => {
               <option value="4">4</option>
               <option value="5">5</option>
             </select>
-            <Button>add to order</Button>
+            <Button type="submit">add to order</Button>
           </form>
         </div>
       )}
