@@ -14,6 +14,7 @@ const Postcode = () => {
   const [distance, setDistance] = useState("");
   const [postcode, setPostcode] = useState("");
   const [loading, setLoading] = useState(false);
+  const [ward, setWard] = useState("");
 
   const baseCoordinates = {
     latitude: 52.62886,
@@ -40,12 +41,13 @@ const Postcode = () => {
         `https://api.postcodes.io/postcodes/${postcode}`
       );
 
-      const { latitude, longitude } = response.data.result;
+      const { latitude, longitude, admin_ward } = response.data.result;
 
       const distance =
         getDistance(baseCoordinates, { latitude, longitude }) / 1000;
 
       setDistance(distance);
+      setWard(admin_ward);
     } catch (err) {
       console.log(err);
     }
@@ -56,7 +58,7 @@ const Postcode = () => {
       <h4>
         111 London Road, Leicester, LE2 1ND <LocationOnIcon />
       </h4>
-      <h3>Do we deliver to you?</h3>
+      <h3>Do we deliver to you? (5 mile radius)</h3>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -75,11 +77,17 @@ const Postcode = () => {
         <Button type="submit">check</Button>
       </form>
       {success && (
-        <h4>
-          {distance < 5
-            ? "yes - we deliver to your area!"
-            : "sorry, we don't currently service your area"}
-        </h4>
+        <div>
+          {distance < 5 ? (
+            <h4>
+              yes - we deliver to your area!
+              <br />
+              {ward}
+            </h4>
+          ) : (
+            "sorry, we don't currently service your area"
+          )}
+        </div>
       )}
     </div>
   );
