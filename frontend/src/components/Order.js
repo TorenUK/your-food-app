@@ -7,6 +7,8 @@ import "./styles/Order.css";
 import CurrencyFormat from "react-currency-format";
 import { Button } from "@material-ui/core";
 import ListAltIcon from "@material-ui/icons/ListAlt";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 
 // redux
 import { useSelector } from "react-redux";
@@ -27,8 +29,10 @@ const Order = () => {
   return (
     <div className="order">
       <div onClick={toggleSlide} className="order__icon">
-        <p>your order || {order.length}</p>
-        <ListAltIcon />
+        <p>
+          your order || {order.length} item{order.length > 1 ? "s" : null}{" "}
+        </p>
+        {showSlide ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
       </div>
       {showSlide && (
         <div className="order__slide">
