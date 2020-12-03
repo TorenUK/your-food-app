@@ -73,6 +73,7 @@ function App() {
             name={item.name}
             price={item.price}
             image={item.image}
+            description={item.description}
             notify={notify}
           />
         ))}
@@ -84,6 +85,7 @@ function App() {
             name={item.name}
             price={item.price}
             image={item.image}
+            description={item.description}
             notify={notify}
           />
         ))}
@@ -95,6 +97,7 @@ function App() {
             name={item.name}
             price={item.price}
             image={item.image}
+            description={item.description}
             notify={notify}
           />
         ))}
@@ -106,6 +109,7 @@ function App() {
             name={item.name}
             price={item.price}
             image={item.image}
+            description={item.description}
             notify={notify}
           />
         ))}

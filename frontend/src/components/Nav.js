@@ -5,6 +5,7 @@ import "./styles/Nav.css";
 
 // other
 import MenuIcon from "@material-ui/icons/Menu";
+import ListAltIcon from "@material-ui/icons/ListAlt";
 import { Button } from "@material-ui/core";
 
 const Nav = ({ toggleSignUp, toggleLogin, toggleSidebar }) => {

@@ -74,7 +74,8 @@
 .nav__button {
   min-width: 200px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .nav__button > .MuiButton-root {

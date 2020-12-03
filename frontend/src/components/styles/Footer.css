@@ -12,3 +12,7 @@
 p {
   color: black;
 }
+
+.footer > a > p {
+  cursor: pointer;
+}

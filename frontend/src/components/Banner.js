@@ -5,7 +5,7 @@ import "./styles/Banner.css";
 
 const Banner = () => {
   return (
-    <div className="banner">
+    <div id="banner" className="banner">
       <div className="banner__content">
         <h2>fancy it?</h2>
         <h2>order it.</h2>
