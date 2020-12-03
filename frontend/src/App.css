@@ -9,6 +9,10 @@
   list-style: none;
 }
 
+.app {
+  background-color: #0d0d0d;
+}
+
 .Toastify__toast--dark {
   background-color: #01bf71 !important;
   border-radius: 5px !important;

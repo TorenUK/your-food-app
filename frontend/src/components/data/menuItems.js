@@ -38,7 +38,7 @@ export const mainItems = [
     image:
       "https://images.unsplash.com/photo-1605908580297-f3e1c02e64ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
     description:
-      "1/2 Tandoori chicken, 2 x pieces seekh kebab, 2 x pieces chicken tikka, 2 x pieces lamb tikka, 2 x tandoori wings served with caramalized onions",
+      "1/2 Tandoori chicken, 2 x pieces seekh kebab, 2 x pieces chicken tikka, 2 x pieces lamb tikka, 2 x tandoori wings served with caramalized onions.",
   },
 ];
 
@@ -48,7 +48,7 @@ export const dessertItems = [
     price: 2.79,
     image:
       "https://images.unsplash.com/photo-1569580990590-478357ea38ab?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1233&q=80",
-    description: "Contains: Gluten, Egg, Milk, Sulphites & Nuts",
+    description: "Contains: Gluten, Egg, Milk, Sulphites & Nuts.",
   },
 ];
 

@@ -1,0 +1,70 @@
+.order {
+  max-width: 40%;
+  min-height: 60px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #0d0d0d;
+  outline: 1px solid #01bf71;
+}
+
+.order__icon {
+  padding: 0.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.order__icon > .MuiSvgIcon-root {
+  font-size: 1.6rem;
+}
+
+.order__icon > p {
+  margin-right: 0.2rem;
+
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.order__slide {
+  width: 100%;
+  min-height: 200px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: #0d0d0d;
+  text-align: center;
+}
+.order__slide > p {
+  color: #fff;
+}
+
+.order__slide__list > p {
+  color: #fff;
+}
+
+.order__slide > .MuiButton-root {
+  background-color: #01bf71;
+}
+
+#subtotal {
+  color: #fff;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 960px) {
+  .order {
+    max-width: 100%;
+  }
+}

@@ -6,6 +6,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  background-color: #fff;
 }
 
 .footer > h1,

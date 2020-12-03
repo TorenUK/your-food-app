@@ -7,6 +7,10 @@ import "./styles/Login.css";
 import { Button } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 
+// redux
+import { useDispatch } from "react-redux";
+import { login } from "../features/user/userSlice";
+
 const Login = ({ toggleLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,6 +18,8 @@ const Login = ({ toggleLogin }) => {
 
   const [emailErr, setEmailErr] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
+
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,7 +37,6 @@ const Login = ({ toggleLogin }) => {
         headers: { "Content-Type": "application/json" },
       });
       const data = await res.json();
-      console.log(data);
       // update error divs
       if (data.errors) {
         setEmailErr(data.errors.email);
@@ -40,6 +45,7 @@ const Login = ({ toggleLogin }) => {
       }
       if (data.user) {
         toggleLogin();
+        dispatch(login(email));
       }
     } catch (err) {
       console.log(err);

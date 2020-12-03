@@ -5,10 +5,16 @@ import "./styles/Nav.css";
 
 // other
 import MenuIcon from "@material-ui/icons/Menu";
-import ListAltIcon from "@material-ui/icons/ListAlt";
 import { Button } from "@material-ui/core";
 
+// redux
+import { useSelector, useDispatch } from "react-redux";
+import { selectUser, logout } from "../features/user/userSlice";
+
 const Nav = ({ toggleSignUp, toggleLogin, toggleSidebar }) => {
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+
   return (
     <nav className="nav">
       <div className="nav__container">
@@ -28,7 +34,17 @@ const Nav = ({ toggleSignUp, toggleLogin, toggleSidebar }) => {
           </ul>
         </div>
         <div className="nav__button">
-          <Button onClick={toggleLogin}>Sign In</Button>
+          {user ? (
+            <Button
+              onClick={() => {
+                dispatch(logout());
+              }}
+            >
+              logout
+            </Button>
+          ) : (
+            <Button onClick={toggleLogin}>login</Button>
+          )}
         </div>
       </div>
     </nav>

@@ -13,6 +13,7 @@ import Postcode from "./components/Postcode";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Item from "./components/Item";
+import Order from "./components/Order";
 
 // other
 import {
@@ -30,14 +31,21 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// redux
+import { useSelector } from "react-redux";
+import { selectOrder } from "./features/order/orderSlice";
+import { selectUser } from "./features/user/userSlice";
+
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
 
+  const order = useSelector(selectOrder);
+
   // toast
   const notify = (name, quantity) =>
-    toast.dark(`${quantity} x ${name} added to cart`);
+    toast.dark(`${quantity} x ${name} added to order`);
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
@@ -65,6 +73,7 @@ function App() {
       />
       <Banner />
       <Postcode />
+      {order.length ? <Order /> : null}
       <BannerNav />
       <Section {...startersObj}>
         {starterItems.map((item, idx) => (
@@ -120,7 +129,7 @@ function App() {
       {showSignUp && <SignUp toggleSignUp={toggleSignUp} />}
       <ToastContainer
         position="bottom-center"
-        autoClose={2000}
+        autoClose={3000}
         hideProgressBar={false}
         newestOnTop={true}
         closeOnClick
