@@ -7,7 +7,14 @@ import "./styles/Sidebar.css";
 import CloseIcon from "@material-ui/icons/Close";
 import { Button } from "@material-ui/core";
 
+// redux
+import { useSelector, useDispatch } from "react-redux";
+import { selectUser, logout } from "../features/user/userSlice";
+
 const Sidebar = ({ toggleSignUp, toggleLogin, toggleSidebar }) => {
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+
   return (
     <aside className="sidebar__container">
       <div className="sidebar__close">
@@ -31,14 +38,24 @@ const Sidebar = ({ toggleSignUp, toggleLogin, toggleSidebar }) => {
         </li>
       </ul>
       <div className="sidebar__button">
-        <Button
-          onClick={() => {
-            toggleLogin();
-            toggleSidebar();
-          }}
-        >
-          Sign In
-        </Button>
+        {user ? (
+          <Button
+            onClick={() => {
+              dispatch(logout());
+            }}
+          >
+            logout
+          </Button>
+        ) : (
+          <Button
+            onClick={() => {
+              toggleLogin();
+              toggleSidebar();
+            }}
+          >
+            Sign In
+          </Button>
+        )}
       </div>
     </aside>
   );

@@ -14,6 +14,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Item from "./components/Item";
 import Order from "./components/Order";
+import Checkout from "./components/Checkout";
 
 // other
 import {
@@ -40,6 +41,7 @@ function App() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
+  const [showCheckout, setShowCheckout] = useState(false);
 
   const order = useSelector(selectOrder);
 
@@ -55,6 +57,9 @@ function App() {
   };
   const toggleSignUp = () => {
     setShowSignUp(!showSignUp);
+  };
+  const toggleCheckout = () => {
+    setShowCheckout(!showCheckout);
   };
 
   return (
@@ -73,7 +78,8 @@ function App() {
       />
       <Banner />
       <Postcode />
-      {order.length ? <Order /> : null}
+      {order.length ? <Order toggleCheckout={toggleCheckout} /> : null}
+      {showCheckout && <Checkout toggleCheckout={toggleCheckout} />}
       <BannerNav />
       <Section {...startersObj}>
         {starterItems.map((item, idx) => (

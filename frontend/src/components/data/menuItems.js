@@ -40,6 +40,14 @@ export const mainItems = [
     description:
       "1/2 Tandoori chicken, 2 x pieces seekh kebab, 2 x pieces chicken tikka, 2 x pieces lamb tikka, 2 x tandoori wings served with caramalized onions.",
   },
+  {
+    name: "Chicken Biryani",
+    price: 6.95,
+    image:
+      "https://images.unsplash.com/photo-1589302168068-964664d93dc0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80",
+    description:
+      "Cooked with basmati rice, tossed together in wok and garnished with coriander and fried onions.",
+  },
 ];
 
 export const dessertItems = [
@@ -49,6 +57,13 @@ export const dessertItems = [
     image:
       "https://images.unsplash.com/photo-1569580990590-478357ea38ab?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1233&q=80",
     description: "Contains: Gluten, Egg, Milk, Sulphites & Nuts.",
+  },
+  {
+    name: "Vanilla Ice Cream",
+    price: 2.79,
+    image:
+      "https://images.unsplash.com/photo-1561845730-208ad5910553?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+    description: "Contains: Gluten, Egg, Milk, Sulphites & may contain Nuts.",
   },
 ];
 

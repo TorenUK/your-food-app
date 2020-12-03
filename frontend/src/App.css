@@ -23,3 +23,12 @@
 .Toastify__progress-bar {
   background-color: #fff !important;
 }
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 960px) {
+  .Toastify__toast--dark {
+    max-width: 90% !important;
+    margin: 1rem auto !important;
+  }
+}

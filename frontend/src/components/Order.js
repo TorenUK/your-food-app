@@ -6,7 +6,6 @@ import "./styles/Order.css";
 // other
 import CurrencyFormat from "react-currency-format";
 import { Button } from "@material-ui/core";
-import ListAltIcon from "@material-ui/icons/ListAlt";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 
@@ -14,7 +13,7 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import { useSelector } from "react-redux";
 import { selectOrder } from "../features/order/orderSlice";
 
-const Order = () => {
+const Order = ({ toggleCheckout }) => {
   const order = useSelector(selectOrder);
   const [showSlide, setShowSlide] = useState(false);
 
@@ -44,7 +43,12 @@ const Order = () => {
             ))}
           </div>
           <div></div>
-          <Button>
+          <Button
+            onClick={() => {
+              toggleSlide();
+              toggleCheckout();
+            }}
+          >
             {" "}
             <CurrencyFormat
               renderText={(value) => (
