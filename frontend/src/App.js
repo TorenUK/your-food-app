@@ -50,6 +50,19 @@ function App() {
   const notify = (name, quantity) =>
     toast.dark(`${quantity} x ${name} added to order`);
 
+  // *DRY ISSUES WILL BE RECTIFIED SOON (⌐■_■)* //
+  const accountCreated = (email) => {
+    toast.dark(`${email} successfully created an account`);
+  };
+
+  const userLogin = (email) => {
+    toast.dark(`signed in to ${email}`);
+  };
+
+  const userLogout = (email) => {
+    toast.dark(`logged out of account ${email}`);
+  };
+
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
@@ -74,12 +87,14 @@ function App() {
           toggleSignUp={toggleSignUp}
           toggleLogin={toggleLogin}
           toggleSidebar={toggleSidebar}
+          userLogout={userLogout}
         />
       )}
       <Nav
         toggleSignUp={toggleSignUp}
         toggleLogin={toggleLogin}
         toggleSidebar={toggleSidebar}
+        userLogout={userLogout}
       />
       <Banner />
       <Postcode />
@@ -141,8 +156,10 @@ function App() {
       <About />
       <Footer />
       <Chat />
-      {showLogin && <Login toggleLogin={toggleLogin} />}
-      {showSignUp && <SignUp toggleSignUp={toggleSignUp} />}
+      {showLogin && <Login userLogin={userLogin} toggleLogin={toggleLogin} />}
+      {showSignUp && (
+        <SignUp accountCreated={accountCreated} toggleSignUp={toggleSignUp} />
+      )}
       <ToastContainer
         position="bottom-center"
         autoClose={3000}

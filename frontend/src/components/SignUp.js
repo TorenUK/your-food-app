@@ -7,13 +7,19 @@ import "./styles/SignUp.css";
 import { Button } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 
-const SignUp = ({ toggleSignUp }) => {
+// redux
+import { useDispatch } from "react-redux";
+import { login } from "../features/user/userSlice";
+
+const SignUp = ({ accountCreated, toggleSignUp }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
 
   const [emailErr, setEmailErr] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
+
+  const dispatch = useDispatch();
 
   const [processing, setProcessing] = useState(false);
 
@@ -27,12 +33,15 @@ const SignUp = ({ toggleSignUp }) => {
       setPasswordErr("");
 
       try {
-        const res = await fetch("http://localhost:4242/user/create", {
-          method: "POST",
-          withCredentials: true,
-          body: JSON.stringify({ email, password }),
-          headers: { "Content-Type": "application/json" },
-        });
+        const res = await fetch(
+          "https://your-food-app.herokuapp.com/user/create",
+          {
+            method: "POST",
+            withCredentials: true,
+            body: JSON.stringify({ email, password }),
+            headers: { "Content-Type": "application/json" },
+          }
+        );
         const data = await res.json();
         console.log(data);
         // update error div
@@ -43,11 +52,14 @@ const SignUp = ({ toggleSignUp }) => {
         }
         if (data.user) {
           toggleSignUp();
+          dispatch(login(email));
+          accountCreated(email);
         }
       } catch (err) {
         console.log(err);
       }
     } else {
+      setProcessing(false);
       setPasswordErr("passwords must match");
     }
   };
@@ -77,7 +89,7 @@ const SignUp = ({ toggleSignUp }) => {
           name="password"
           type="password"
           placeholder="password"
-          autoComplete="true"
+          autoComplete="new-password"
           required
         />
         <input
@@ -87,7 +99,7 @@ const SignUp = ({ toggleSignUp }) => {
           name="password2"
           type="password"
           placeholder="re-enter password"
-          autoComplete="true"
+          autoComplete="new-password"
           required
         />
         <div className="password error">{passwordErr}</div>

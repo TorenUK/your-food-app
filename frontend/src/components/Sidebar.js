@@ -12,7 +12,7 @@ import { Button } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser, logout } from "../features/user/userSlice";
 
-const Sidebar = ({ toggleSignUp, toggleLogin, toggleSidebar }) => {
+const Sidebar = ({ toggleSignUp, toggleLogin, toggleSidebar, userLogout }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
@@ -45,6 +45,8 @@ const Sidebar = ({ toggleSignUp, toggleLogin, toggleSidebar }) => {
           <Button
             onClick={() => {
               dispatch(logout());
+              toggleSidebar();
+              userLogout(user);
             }}
           >
             logout

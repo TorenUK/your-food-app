@@ -11,7 +11,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import { useDispatch } from "react-redux";
 import { login } from "../features/user/userSlice";
 
-const Login = ({ toggleLogin }) => {
+const Login = ({ userLogin, toggleLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [processing, setProcessing] = useState(false);
@@ -30,12 +30,15 @@ const Login = ({ toggleLogin }) => {
     setPasswordErr("");
 
     try {
-      const res = await fetch("http://localhost:4242/user/login", {
-        method: "POST",
-        withCredentials: true,
-        body: JSON.stringify({ email, password }),
-        headers: { "Content-Type": "application/json" },
-      });
+      const res = await fetch(
+        "https://your-food-app.herokuapp.com/user/login",
+        {
+          method: "POST",
+          withCredentials: true,
+          body: JSON.stringify({ email, password }),
+          headers: { "Content-Type": "application/json" },
+        }
+      );
       const data = await res.json();
       // update error divs
       if (data.errors) {
@@ -46,6 +49,7 @@ const Login = ({ toggleLogin }) => {
       if (data.user) {
         toggleLogin();
         dispatch(login(email));
+        userLogin(email);
       }
     } catch (err) {
       console.log(err);
@@ -77,7 +81,7 @@ const Login = ({ toggleLogin }) => {
           name="password"
           type="password"
           placeholder="password"
-          autoComplete="true"
+          autoComplete="current-password"
           required
         />
         <div className="password error">{passwordErr}</div>

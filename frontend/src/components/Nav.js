@@ -12,7 +12,7 @@ import { Link as LinkScroll } from "react-scroll";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser, logout } from "../features/user/userSlice";
 
-const Nav = ({ toggleSignUp, toggleLogin, toggleSidebar }) => {
+const Nav = ({ toggleSignUp, toggleLogin, toggleSidebar, userLogout }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
@@ -41,6 +41,7 @@ const Nav = ({ toggleSignUp, toggleLogin, toggleSidebar }) => {
             <Button
               onClick={() => {
                 dispatch(logout());
+                userLogout(user);
               }}
             >
               logout
