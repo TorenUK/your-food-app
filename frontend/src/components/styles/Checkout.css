@@ -4,9 +4,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 50%;
+  width: 60%;
   max-width: 800px;
-  height: 50%;
+  height: 60%;
 
   display: flex;
   flex-direction: column;
@@ -25,6 +25,43 @@
 
 .checkout__items > p {
   color: #fff;
+}
+
+.checkout__form {
+  width: 100%;
+  height: 100px;
+  display: grid;
+  place-items: center;
+}
+
+.checkout__form > form {
+  width: 40%;
+  min-height: 100px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout__form > form > input {
+  margin: 8px 0;
+  color: #000;
+}
+
+.checkout__element {
+  width: 60%;
+  min-height: 100px;
+}
+
+.checkout__buttons {
+  width: 40%;
+  min-height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.checkout__buttons > #pay {
+  background-color: #01bf71;
 }
 
 /* MEDIA QUERIES */

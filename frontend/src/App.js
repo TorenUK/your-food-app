@@ -32,11 +32,17 @@ import {
 } from "./components/data/menuItems";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
 // redux
 import { useSelector } from "react-redux";
 import { selectOrder } from "./features/order/orderSlice";
 import { selectUser } from "./features/user/userSlice";
+
+const promise = loadStripe(
+  "pk_test_51HCr8zGrO8LMr0aUXQ0OQTnN3yG2EZOvmnm5zs01TjUVekfhGgS3b0WL7BeDxqV97ikJ7DqJR5qaFknoFIx7pnhu00rn1llTud"
+);
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -56,7 +62,7 @@ function App() {
   };
 
   const userLogin = (email) => {
-    toast.dark(`signed in to ${email}`);
+    toast.dark(`signed in as ${email}`);
   };
 
   const userLogout = (email) => {
@@ -99,7 +105,11 @@ function App() {
       <Banner />
       <Postcode />
       {order.length ? <Order toggleCheckout={toggleCheckout} /> : null}
-      {showCheckout && <Checkout toggleCheckout={toggleCheckout} />}
+      {showCheckout && (
+        <Elements stripe={promise}>
+          <Checkout toggleCheckout={toggleCheckout} />
+        </Elements>
+      )}
       <BannerNav />
       <Section {...startersObj}>
         {starterItems.map((item, idx) => (

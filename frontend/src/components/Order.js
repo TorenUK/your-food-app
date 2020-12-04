@@ -47,13 +47,15 @@ const Order = ({ toggleCheckout }) => {
                 <p>
                   {item.name} x {item.quantity}
                 </p>
-                <Button
-                  onClick={() => {
-                    dispatch(removeFromOrder({ id: item.id }));
-                  }}
-                >
-                  <DeleteForeverIcon />
-                </Button>
+                <div className="order__item__button">
+                  <Button
+                    onClick={() => {
+                      dispatch(removeFromOrder({ id: item.id }));
+                    }}
+                  >
+                    <DeleteForeverIcon />
+                  </Button>
+                </div>
               </div>
             ))}
           </div>
