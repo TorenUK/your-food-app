@@ -15,7 +15,7 @@ const Checkout = ({ toggleCheckout }) => {
 
   return (
     <div className="checkout">
-      <div>checkout</div>
+      <h1>checkout</h1>
       <div className="checkout__items">
         {order.map((item, idx) => (
           <p key={idx}>

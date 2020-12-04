@@ -29,7 +29,7 @@
 .nav__logo {
   min-width: 200px;
 
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
 }
@@ -93,6 +93,14 @@
   .nav {
     transition: all 0.8s all ease;
   }
+  .nav__logo {
+    min-width: 200px;
+
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
   .nav__burger {
     display: block;
     position: absolute;

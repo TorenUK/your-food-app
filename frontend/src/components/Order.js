@@ -12,10 +12,13 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 
 // redux
 import { useSelector, useDispatch } from "react-redux";
+import { selectUser } from "../features/user/userSlice";
 import { selectOrder, removeFromOrder } from "../features/order/orderSlice";
 
 const Order = ({ toggleCheckout }) => {
   const order = useSelector(selectOrder);
+  const user = useSelector(selectUser);
+
   const [showSlide, setShowSlide] = useState(false);
 
   const dispatch = useDispatch();
@@ -57,8 +60,12 @@ const Order = ({ toggleCheckout }) => {
           <div></div>
           <Button
             onClick={() => {
-              toggleSlide();
-              toggleCheckout();
+              if (user) {
+                toggleSlide();
+                toggleCheckout();
+              } else {
+                alert("please sign in");
+              }
             }}
           >
             {" "}
