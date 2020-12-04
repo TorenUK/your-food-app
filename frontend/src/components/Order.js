@@ -6,6 +6,7 @@ import "./styles/Order.css";
 // other
 import CurrencyFormat from "react-currency-format";
 import { Button } from "@material-ui/core";
+import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 
@@ -37,9 +38,14 @@ const Order = ({ toggleCheckout }) => {
         <div className="order__slide">
           <div className="order__slide__list">
             {order.map((item, idx) => (
-              <p key={idx}>
-                {item.name} x {item.quantity}
-              </p>
+              <div key={idx} className="order__item">
+                <p>
+                  {item.name} x {item.quantity}
+                </p>
+                <Button>
+                  <DeleteForeverIcon />
+                </Button>
+              </div>
             ))}
           </div>
           <div></div>

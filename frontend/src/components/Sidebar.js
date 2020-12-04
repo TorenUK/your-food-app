@@ -4,6 +4,7 @@ import React from "react";
 import "./styles/Sidebar.css";
 
 // other
+import { Link as LinkScroll } from "react-scroll";
 import CloseIcon from "@material-ui/icons/Close";
 import { Button } from "@material-ui/core";
 
@@ -24,9 +25,11 @@ const Sidebar = ({ toggleSignUp, toggleLogin, toggleSidebar }) => {
         <li onClick={toggleSidebar} className="sidebar__link">
           Orders
         </li>
-        <li onClick={toggleSidebar} className="sidebar__link">
-          About
-        </li>
+        <LinkScroll to="about" smooth={true} duration={700}>
+          <li onClick={toggleSidebar} className="sidebar__link">
+            About
+          </li>
+        </LinkScroll>
         <li
           onClick={() => {
             toggleSignUp();

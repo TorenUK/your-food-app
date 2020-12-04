@@ -6,6 +6,7 @@ import "./styles/Nav.css";
 // other
 import MenuIcon from "@material-ui/icons/Menu";
 import { Button } from "@material-ui/core";
+import { Link as LinkScroll } from "react-scroll";
 
 // redux
 import { useSelector, useDispatch } from "react-redux";
@@ -27,7 +28,9 @@ const Nav = ({ toggleSignUp, toggleLogin, toggleSidebar }) => {
         <div className="nav__menu">
           <ul className="nav__links">
             <li className="nav__item">Orders</li>
-            <li className="nav__item">About</li>
+            <LinkScroll to="about" smooth={true} duration={700}>
+              <li className="nav__item">About</li>
+            </LinkScroll>
             <li onClick={toggleSignUp} className="nav__item">
               Sign Up
             </li>

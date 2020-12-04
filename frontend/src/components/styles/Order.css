@@ -36,7 +36,7 @@
 
 .order__slide {
   width: 100%;
-  min-height: 200px;
+  min-height: 300px;
 
   display: flex;
   flex-direction: column;
@@ -46,12 +46,36 @@
   background-color: #0d0d0d;
   text-align: center;
 }
-.order__slide > p {
-  color: #fff;
+
+.order__slide__list {
+  width: 100%;
+  height: 200px;
+  max-height: 200px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  overflow-y: scroll;
 }
 
-.order__slide__list > p {
+.order__item {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order__item > .MuiButton-root {
+  min-width: unset;
+  width: fit-content;
+}
+
+.order__item > p {
   color: #fff;
+  width: 70%;
 }
 
 .order__slide > .MuiButton-root {

@@ -1,0 +1,11 @@
+.about {
+  width: 100%;
+  min-height: 600px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #0d0d0d;
+}

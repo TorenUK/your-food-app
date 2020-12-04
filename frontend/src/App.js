@@ -15,6 +15,7 @@ import SignUp from "./components/SignUp";
 import Item from "./components/Item";
 import Order from "./components/Order";
 import Checkout from "./components/Checkout";
+import About from "./components/About";
 
 // other
 import {
@@ -53,10 +54,14 @@ function App() {
     setShowSidebar(!showSidebar);
   };
   const toggleLogin = () => {
-    setShowLogin(!showLogin);
+    if (!showSignUp) {
+      setShowLogin(!showLogin);
+    }
   };
   const toggleSignUp = () => {
-    setShowSignUp(!showSignUp);
+    if (!showLogin) {
+      setShowSignUp(!showSignUp);
+    }
   };
   const toggleCheckout = () => {
     setShowCheckout(!showCheckout);
@@ -129,6 +134,7 @@ function App() {
           />
         ))}
       </Section>
+      <About />
       <Footer />
       <Chat />
       {showLogin && <Login toggleLogin={toggleLogin} />}

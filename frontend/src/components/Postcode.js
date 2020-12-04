@@ -56,7 +56,7 @@ const Postcode = () => {
   return (
     <div className="postcode">
       <h4>
-        111 London Road, Leicester, LE2 1ND <LocationOnIcon />
+        111 London Road, Leicester, LE2 0PF <LocationOnIcon />
       </h4>
       <h3>Do we deliver to you? (10 mile radius)</h3>
       <form

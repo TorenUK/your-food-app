@@ -57,6 +57,11 @@
   justify-content: center;
 }
 
+.nav__links > a {
+  display: flex;
+  justify-content: center;
+}
+
 .nav__item {
   padding: 0 1rem;
 

@@ -12,7 +12,7 @@ export const starterItems = [
     image:
       "https://images.unsplash.com/photo-1590828413506-d632c9e582c8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1625&q=80",
     description:
-      "2 x small pieces seekh kebab, 2 x pices chicken tikka, 2 x pieces lamb tikka, cooked with caramalized onions.",
+      "2 x small pieces seekh kebab, 2 x pieces chicken tikka, 2 x pieces lamb tikka, cooked with caramalized onions.",
   },
   {
     name: "Vegetable Samosas",

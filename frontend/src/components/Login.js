@@ -57,7 +57,7 @@ const Login = ({ toggleLogin }) => {
       <div className="login__close">
         <CloseIcon onClick={toggleLogin} />
       </div>
-      <h1>Sign In</h1>
+      <h1>Login</h1>
       <form>
         <input
           onChange={(e) => {
