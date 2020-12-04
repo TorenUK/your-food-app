@@ -11,7 +11,7 @@ import AddBoxIcon from "@material-ui/icons/AddBox";
 import { useDispatch } from "react-redux";
 import { addToOrder } from "../features/order/orderSlice";
 
-const Item = ({ name, price, image, description, notify }) => {
+const Item = ({ name, price, image, id, description, notify }) => {
   const [showSlide, setShowSlide] = useState(false);
 
   const handleSubmit = (e) => {
@@ -30,6 +30,7 @@ const Item = ({ name, price, image, description, notify }) => {
         name: name,
         quantity: quantity,
         price: parseFloat(parsedTotal),
+        id: id,
       })
     );
   };

@@ -11,12 +11,14 @@ import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 
 // redux
-import { useSelector } from "react-redux";
-import { selectOrder } from "../features/order/orderSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { selectOrder, removeFromOrder } from "../features/order/orderSlice";
 
 const Order = ({ toggleCheckout }) => {
   const order = useSelector(selectOrder);
   const [showSlide, setShowSlide] = useState(false);
+
+  const dispatch = useDispatch();
 
   const toggleSlide = () => {
     setShowSlide(!showSlide);
@@ -38,11 +40,15 @@ const Order = ({ toggleCheckout }) => {
         <div className="order__slide">
           <div className="order__slide__list">
             {order.map((item, idx) => (
-              <div key={idx} className="order__item">
+              <div key={idx} id={item.id} className="order__item">
                 <p>
                   {item.name} x {item.quantity}
                 </p>
-                <Button>
+                <Button
+                  onClick={() => {
+                    dispatch(removeFromOrder({ id: item.id }));
+                  }}
+                >
                   <DeleteForeverIcon />
                 </Button>
               </div>
