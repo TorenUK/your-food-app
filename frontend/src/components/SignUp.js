@@ -11,7 +11,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import { useDispatch } from "react-redux";
 import { login } from "../features/user/userSlice";
 
-const SignUp = ({ accountCreated, toggleSignUp }) => {
+const SignUp = ({ accountCreated, toggleSignUp, setGuest }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
@@ -104,9 +104,17 @@ const SignUp = ({ accountCreated, toggleSignUp }) => {
         />
         <div className="password error">{passwordErr}</div>
         <Button onClick={handleSubmit}>
-          {processing ? "PROCESSING" : "CONTINUE"}
+          {processing ? "processing" : "create"}
         </Button>
       </form>
+      <Button
+        onClick={() => {
+          toggleSignUp();
+          setGuest(true);
+        }}
+      >
+        continue as guest
+      </Button>
     </div>
   );
 };

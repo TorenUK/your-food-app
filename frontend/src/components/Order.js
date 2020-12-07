@@ -15,7 +15,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectUser } from "../features/user/userSlice";
 import { selectOrder, removeFromOrder } from "../features/order/orderSlice";
 
-const Order = ({ toggleCheckout }) => {
+const Order = ({ toggleCheckout, guest, setGuest, toggleSignUp }) => {
   const order = useSelector(selectOrder);
   const user = useSelector(selectUser);
 
@@ -62,11 +62,11 @@ const Order = ({ toggleCheckout }) => {
           <div></div>
           <Button
             onClick={() => {
-              if (user) {
+              if (user || guest) {
                 toggleSlide();
                 toggleCheckout();
               } else {
-                alert("please sign in");
+                toggleSignUp();
               }
             }}
           >

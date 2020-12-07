@@ -51,6 +51,7 @@ function App() {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
+  const [guest, setGuest] = useState(false);
 
   const order = useSelector(selectOrder);
 
@@ -112,7 +113,14 @@ function App() {
             />
             <Banner />
             <Postcode />
-            {order.length ? <Order toggleCheckout={toggleCheckout} /> : null}
+            {order.length ? (
+              <Order
+                guest={guest}
+                setGuest={setGuest}
+                toggleSignUp={toggleSignUp}
+                toggleCheckout={toggleCheckout}
+              />
+            ) : null}
             {showCheckout && (
               <Elements stripe={promise}>
                 <Checkout toggleCheckout={toggleCheckout} />
@@ -179,6 +187,7 @@ function App() {
             )}
             {showSignUp && (
               <SignUp
+                setGuest={setGuest}
                 accountCreated={accountCreated}
                 toggleSignUp={toggleSignUp}
               />
