@@ -54,6 +54,14 @@ export const mainItems = [
       "Cooked with basmati rice, tossed together in wok and garnished with coriander and fried onions.",
     id: 6,
   },
+  {
+    name: "Sweet Potato & Chickpea Curry",
+    price: 3.95,
+    image:
+      "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=931&q=80",
+    description: "",
+    id: 7,
+  },
 ];
 
 export const dessertItems = [
@@ -63,7 +71,7 @@ export const dessertItems = [
     image:
       "https://images.unsplash.com/photo-1569580990590-478357ea38ab?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1233&q=80",
     description: "Contains: Gluten, Egg, Milk, Sulphites & Nuts.",
-    id: 7,
+    id: 8,
   },
   {
     name: "Vanilla Ice Cream",
@@ -71,7 +79,7 @@ export const dessertItems = [
     image:
       "https://images.unsplash.com/photo-1561845730-208ad5910553?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
     description: "Contains: Gluten, Egg, Milk, Sulphites & may contain Nuts.",
-    id: 8,
+    id: 9,
   },
 ];
 
@@ -81,13 +89,20 @@ export const extraItems = [
     price: 3.49,
     image:
       "https://images.unsplash.com/photo-1518013431117-eb1465fa5752?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
-    id: 9,
+    id: 10,
   },
   {
     name: "Green Salad",
     price: 1.55,
     image:
       "https://images.unsplash.com/photo-1558163250-62987a71f81a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80",
-    id: 10,
+    id: 11,
+  },
+  {
+    name: "Stuffed Naan",
+    price: 1.05,
+    image:
+      "https://images.unsplash.com/photo-1601387434127-20979856e76e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80",
+    id: 12,
   },
 ];

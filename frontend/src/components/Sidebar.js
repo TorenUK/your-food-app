@@ -26,7 +26,7 @@ const Sidebar = ({ toggleSignUp, toggleLogin, toggleSidebar, userLogout }) => {
         {user ? (
           <Link to="/ActiveOrder">
             <li onClick={toggleSidebar} className="sidebar__link">
-              Active orders
+              Account
             </li>
           </Link>
         ) : null}

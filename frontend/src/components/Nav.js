@@ -30,7 +30,7 @@ const Nav = ({ toggleSignUp, toggleLogin, toggleSidebar, userLogout }) => {
           <ul className="nav__links">
             {user ? (
               <Link to="/ActiveOrder">
-                <li className="nav__item">Active order</li>
+                <li className="nav__item">Account</li>
               </Link>
             ) : null}
             <LinkScroll to="about" smooth={true} duration={700}>

@@ -42,7 +42,7 @@
 }
 
 .checkout__form > form {
-  width: 50%;
+  width: 40%;
   min-height: 100px;
 
   display: flex;
@@ -51,6 +51,9 @@
 
 .checkout__form > form > input {
   margin: 8px 0;
+  padding: 2px;
+
+  border-radius: 5px;
   color: #000;
 }
 

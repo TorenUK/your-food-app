@@ -23,3 +23,20 @@
 p {
   color: #fff;
 }
+.activeOrders__content > h2 > span {
+  color: #01bf71;
+}
+
+.activeOrders__customer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.activeOrders__bottom > h2 {
+  display: flex;
+  justify-content: center;
+
+  color: #01bf71;
+}
