@@ -13,6 +13,9 @@ const Footer = () => {
       <LinkScroll to="banner" smooth={true} duration={700}>
         <p>back to top</p>
       </LinkScroll>
+      <div className="footer__bottom">
+        <p>COPYRIGHT 2020 YOUR FOOD APP </p>
+      </div>
     </div>
   );
 };

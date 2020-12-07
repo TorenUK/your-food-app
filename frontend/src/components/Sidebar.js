@@ -5,6 +5,7 @@ import "./styles/Sidebar.css";
 
 // other
 import { Link as LinkScroll } from "react-scroll";
+import { Link } from "react-router-dom";
 import CloseIcon from "@material-ui/icons/Close";
 import { Button } from "@material-ui/core";
 
@@ -22,9 +23,13 @@ const Sidebar = ({ toggleSignUp, toggleLogin, toggleSidebar, userLogout }) => {
         <CloseIcon onClick={toggleSidebar} />
       </div>
       <ul className="sidebar__menu">
-        <li onClick={toggleSidebar} className="sidebar__link">
-          Orders
-        </li>
+        {user ? (
+          <Link to="/ActiveOrder">
+            <li onClick={toggleSidebar} className="sidebar__link">
+              Active orders
+            </li>
+          </Link>
+        ) : null}
         <LinkScroll to="about" smooth={true} duration={700}>
           <li onClick={toggleSidebar} className="sidebar__link">
             About

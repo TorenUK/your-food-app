@@ -1,6 +1,7 @@
 .footer {
   width: 100%;
   min-height: 600px;
+  position: relative;
 
   display: flex;
   flex-direction: column;
@@ -17,4 +18,17 @@ p {
 
 .footer > a > p {
   cursor: pointer;
+  color: #000;
+}
+
+.footer__bottom {
+  width: 100%;
+
+  position: absolute;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+
+  background-color: #000;
 }

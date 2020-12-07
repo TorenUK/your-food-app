@@ -10,13 +10,14 @@ import { useHistory } from "react-router-dom";
 import axios from "../axios";
 
 // redux
-import { useSelector } from "react-redux";
-import { selectOrder } from "../features/order/orderSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { selectOrder, emptyOrder } from "../features/order/orderSlice";
 import { selectUser } from "../features/user/userSlice";
 
 const Checkout = ({ toggleCheckout }) => {
   const order = useSelector(selectOrder);
   const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -62,8 +63,9 @@ const Checkout = ({ toggleCheckout }) => {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
-
-      history.push("/ActiveOrders");
+      dispatch(emptyOrder());
+      toggleCheckout();
+      history.push("/ActiveOrder");
     }
   };
 
