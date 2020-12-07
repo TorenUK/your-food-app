@@ -16,8 +16,12 @@ import Item from "./components/Item";
 import Order from "./components/Order";
 import Checkout from "./components/Checkout";
 import About from "./components/About";
+import ActiveOrders from "./components/ActiveOrders";
 
 // other
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { selectOrder } from "./features/order/orderSlice";
+import { selectUser } from "./features/user/userSlice";
 import {
   startersObj,
   mainsObj,
@@ -37,8 +41,6 @@ import { Elements } from "@stripe/react-stripe-js";
 
 // redux
 import { useSelector } from "react-redux";
-import { selectOrder } from "./features/order/orderSlice";
-import { selectUser } from "./features/user/userSlice";
 
 const promise = loadStripe(
   "pk_test_51HCr8zGrO8LMr0aUXQ0OQTnN3yG2EZOvmnm5zs01TjUVekfhGgS3b0WL7BeDxqV97ikJ7DqJR5qaFknoFIx7pnhu00rn1llTud"
@@ -87,100 +89,114 @@ function App() {
   };
 
   return (
-    <div className="app">
-      {showSidebar && (
-        <Sidebar
-          toggleSignUp={toggleSignUp}
-          toggleLogin={toggleLogin}
-          toggleSidebar={toggleSidebar}
-          userLogout={userLogout}
-        />
-      )}
-      <Nav
-        toggleSignUp={toggleSignUp}
-        toggleLogin={toggleLogin}
-        toggleSidebar={toggleSidebar}
-        userLogout={userLogout}
-      />
-      <Banner />
-      <Postcode />
-      {order.length ? <Order toggleCheckout={toggleCheckout} /> : null}
-      {showCheckout && (
-        <Elements stripe={promise}>
-          <Checkout toggleCheckout={toggleCheckout} />
-        </Elements>
-      )}
-      <BannerNav />
-      <Section {...startersObj}>
-        {starterItems.map((item, idx) => (
-          <Item
-            key={idx}
-            name={item.name}
-            price={item.price}
-            image={item.image}
-            description={item.description}
-            id={item.id}
-            notify={notify}
-          />
-        ))}
-      </Section>
-      <Section {...mainsObj}>
-        {mainItems.map((item, idx) => (
-          <Item
-            key={idx}
-            name={item.name}
-            price={item.price}
-            image={item.image}
-            description={item.description}
-            id={item.id}
-            notify={notify}
-          />
-        ))}
-      </Section>
-      <Section {...dessertsObj}>
-        {dessertItems.map((item, idx) => (
-          <Item
-            key={idx}
-            name={item.name}
-            price={item.price}
-            image={item.image}
-            description={item.description}
-            id={item.id}
-            notify={notify}
-          />
-        ))}
-      </Section>
-      <Section {...extrasObj}>
-        {extraItems.map((item, idx) => (
-          <Item
-            key={idx}
-            name={item.name}
-            price={item.price}
-            image={item.image}
-            description={item.description}
-            id={item.id}
-            notify={notify}
-          />
-        ))}
-      </Section>
-      <About />
-      <Footer />
-      <Chat />
-      {showLogin && <Login userLogin={userLogin} toggleLogin={toggleLogin} />}
-      {showSignUp && (
-        <SignUp accountCreated={accountCreated} toggleSignUp={toggleSignUp} />
-      )}
-      <ToastContainer
-        position="bottom-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={true}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-      />
-    </div>
+    <Router>
+      <div className="app">
+        <Switch>
+          <Route path="/ActiveOrder">
+            <ActiveOrders />
+          </Route>
+          <Route path="/">
+            {showSidebar && (
+              <Sidebar
+                toggleSignUp={toggleSignUp}
+                toggleLogin={toggleLogin}
+                toggleSidebar={toggleSidebar}
+                userLogout={userLogout}
+              />
+            )}
+            <Nav
+              toggleSignUp={toggleSignUp}
+              toggleLogin={toggleLogin}
+              toggleSidebar={toggleSidebar}
+              userLogout={userLogout}
+            />
+            <Banner />
+            <Postcode />
+            {order.length ? <Order toggleCheckout={toggleCheckout} /> : null}
+            {showCheckout && (
+              <Elements stripe={promise}>
+                <Checkout toggleCheckout={toggleCheckout} />
+              </Elements>
+            )}
+            <BannerNav />
+            <Section {...startersObj}>
+              {starterItems.map((item, idx) => (
+                <Item
+                  key={idx}
+                  name={item.name}
+                  price={item.price}
+                  image={item.image}
+                  description={item.description}
+                  id={item.id}
+                  notify={notify}
+                />
+              ))}
+            </Section>
+            <Section {...mainsObj}>
+              {mainItems.map((item, idx) => (
+                <Item
+                  key={idx}
+                  name={item.name}
+                  price={item.price}
+                  image={item.image}
+                  description={item.description}
+                  id={item.id}
+                  notify={notify}
+                />
+              ))}
+            </Section>
+            <Section {...dessertsObj}>
+              {dessertItems.map((item, idx) => (
+                <Item
+                  key={idx}
+                  name={item.name}
+                  price={item.price}
+                  image={item.image}
+                  description={item.description}
+                  id={item.id}
+                  notify={notify}
+                />
+              ))}
+            </Section>
+            <Section {...extrasObj}>
+              {extraItems.map((item, idx) => (
+                <Item
+                  key={idx}
+                  name={item.name}
+                  price={item.price}
+                  image={item.image}
+                  description={item.description}
+                  id={item.id}
+                  notify={notify}
+                />
+              ))}
+            </Section>
+            <About />
+            <Footer />
+            <Chat />
+            {showLogin && (
+              <Login userLogin={userLogin} toggleLogin={toggleLogin} />
+            )}
+            {showSignUp && (
+              <SignUp
+                accountCreated={accountCreated}
+                toggleSignUp={toggleSignUp}
+              />
+            )}
+            <ToastContainer
+              position="bottom-center"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={true}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+            />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

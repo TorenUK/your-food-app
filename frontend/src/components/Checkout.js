@@ -6,6 +6,7 @@ import "./styles/Checkout.css";
 // other
 import { Button } from "@material-ui/core";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { useHistory } from "react-router-dom";
 import axios from "../axios";
 
 // redux
@@ -25,6 +26,8 @@ const Checkout = ({ toggleCheckout }) => {
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState("");
   const [disabled, setDisabled] = useState(true);
+
+  const history = useHistory();
 
   useEffect(() => {
     const getClientSecret = async () => {
@@ -59,6 +62,8 @@ const Checkout = ({ toggleCheckout }) => {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
+
+      history.push("/ActiveOrders");
     }
   };
 
